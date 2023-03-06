@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(47, 62, 70);
+    font-family: sans-serif;
+    font-weight: bolder;
+    margin: 0;
+    overflow-x: hidden;
+}
+header{
+    
+    overflow-x: hidden;
+    background-color:black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-color: black;
+    border: solid;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    align-items: center;
+    padding: 10px;
+}
+h2{
+    color: rgb(202, 210, 197);
+}
+a{
+    text-decoration: none;
+    color: rgb(202, 210, 197);
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+
+}
+.logo img{
+    height: 50px;
+    margin-right: 20px;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    
+}
+.nav-link{
+    padding: 10px;
+}
+.nav-link:hover{
+    color: white;
+}
+
+.principal{
+    width: 100%;
+    padding: 20px;
+    grid-area: principal;
+    height: 100%;
+    align-items: center;
+
+}
+.big{
+    grid-area: big;
+    margin: 20px;
+    padding: 5px;
+    background-color: rgb(53, 79, 82);
+    color: rgb(202, 210, 197);
+}
+.cuerpo{
+    grid-area: cuerpo;
+    padding: 20px;
+    color: rgb(202, 210, 197);
+    
+}
+.sub{
+    padding-bottom: 20px;
+}
+.sub2{
+    padding-bottom: 20px;
+}
+button{
+    border-radius: 25px;
+    padding: 20px;
+    border: solid;
+}
+.compra{
+    background-color: black;
+    color: rgb(202, 210, 197);
+    border-color: black;
+}
+.catalogo{
+    border-color:rgb(202, 210, 197);
+    background-color: rgb(47, 62, 70);
+    color: rgb(202, 210, 197);
+}
+.grilla{
+    overflow-x: hidden;
+    display: grid;
+    max-width: 100%;
+    grid-template-areas:
+    "big"
+    "principal"
+    "cuerpo";
+}
+.icon{
+    padding: 20px;
+}
+.foot{
+    padding-right: 10px;
+}
+
+@media(min-width:500px){
+
+    header{
+        font-size: 20px;
+    }
+    .big{
+        font-size: 20px;
+    }
+}
+@media(min-width:800px){
+    .principal{
+        grid-area: principal;
+    }
+    header{
+        flex-direction: row;
+        font-size: 30px;
+    }
+    .nav-link{
+        font-size: 20px;
+    }
+    .big{
+        font-size: 30px;
+    }
+    button{
+        font-size: 20px;
+    }
+    .grilla{
+        grid-template-columns: 2fr 1fr ;
+        grid-template-areas:
+        "big principal"
+        "cuerpo principal";
+    }
+    }
