@@ -170,6 +170,10 @@ button{
     background-color: rgb(202, 210, 197);
     border: solid rgb(53, 79, 82);
 }
+#carrito-container{
+    background-color: rgb(202, 210, 197);
+    display: none;
+}
 @media(min-width:500px){
 
     header{

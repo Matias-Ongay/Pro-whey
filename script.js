@@ -58,15 +58,16 @@ for (let i = 0; i < productos.length; i++) {
 	precio.textContent = `$${productos[i].precio.toFixed(2)}`;
 	producto.appendChild(precio);
 
-    const botonAgregar = document.createElement("button");
+	const botonAgregar = document.createElement("button");
     botonAgregar.textContent = "Agregar al carrito";
     botonAgregar.classList.add("boton-agregar");
     botonAgregar.addEventListener("click", () => agregarAlCarrito(productos[i]));
     producto.appendChild(botonAgregar);
-   
 
 	catalogo.appendChild(producto);
 }
+	
+
 function generarMensaje(carrito) {
 	let mensaje = "¡Hola! Aquí te comparto los productos que un cliente agregó al carrito:\n\n";
 	for (let i = 0; i < carrito.length; i++) {
@@ -77,14 +78,37 @@ function generarMensaje(carrito) {
 	return decodeURIComponent(mensaje);
   }
 function agregarAlCarrito(productos) {
+	const productCarro = productos;
+	const productosCarro=document.createElement("li");
+	productosCarro.textContent=productCarro.nombre;
+	contenedorLista.appendChild(productosCarro);
+	console.log("anda 2");
     carrito.push(productos);
     console.log(carrito);
+	
 }
-
+function toggleMenu() {
+	let menuContainer = document.getElementById("carrito-container");
+	console.log("anda");
+	if (menuContainer.style.display === "block") {
+	  menuContainer.style.display = "none";
+	} else {
+	  menuContainer.style.display = "block";
+	}
+  }
+const contenedorLista=document.getElementById("container-lista");
 const button = document.getElementById("carrito");
-button.addEventListener("click", function() {
+
+
+function onButtonClick() {
+	toggleMenu();
+	
+ }
+button.addEventListener("click",onButtonClick);
+
+
+  /*button.addEventListener("click", function() {
   const mensaje = encodeURIComponent(generarMensaje(carrito));
   window.open(`https://api.whatsapp.com/send?phone=+542616731229&text=${mensaje}`, "_blank");
 });
-
-  
+*/
