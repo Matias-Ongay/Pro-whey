@@ -1,36 +1,36 @@
 const productos = [
 	{
-        id:1,
+        
 		nombre: "Whey protein choco",
 		precio: 10.99,
 		imagen: src="./imagenes/whey.jpg"
 	},
 	{
-        id:2,
+        
 		nombre: "vitaminas",
 		precio: 15.99,
 		imagen: "./imagenes/vitamin.jpg"
 	},
 	{
-        id:3,
+        
 		nombre: "Whey protein crema",
 		precio: 19.99,
 		imagen: "./imagenes/proteincrema.jpg"
 	},
     {
-        id:4,
+      
         nombre: "Creatina",
 		precio: 30.50,
 		imagen: "./imagenes/creatina.jpg"
     },
     {
-        id:5,
+        
         nombre: "Pre entreno",
 		precio: 19.99,
 		imagen: "./imagenes/prework.jpg"
     },
     {
-        id:6,
+        
         nombre: "Glutamina",
 		precio: 10.00,
 		imagen: "./imagenes/glutamine.jpg"
@@ -61,17 +61,30 @@ for (let i = 0; i < productos.length; i++) {
     const botonAgregar = document.createElement("button");
     botonAgregar.textContent = "Agregar al carrito";
     botonAgregar.classList.add("boton-agregar");
-    botonAgregar.addEventListener("click", () => agregarAlCarrito(producto));
+    botonAgregar.addEventListener("click", () => agregarAlCarrito(productos[i]));
     producto.appendChild(botonAgregar);
    
 
 	catalogo.appendChild(producto);
 }
-
-function agregarAlCarrito(producto) {
-    carrito.push(producto);
-    console.log(`el producto ${carrito[0].id} ha sido agregado al carro`)
+function generarMensaje(carrito) {
+	let mensaje = "¡Hola! Aquí te comparto los productos que un cliente agregó al carrito:\n\n";
+	for (let i = 0; i < carrito.length; i++) {
+	  const producto = carrito[i];
+	  mensaje += `Nombre: ${producto.nombre}\n`;
+	  mensaje += `Precio: $${producto.precio.toFixed(2)}\n\n`;
+	}
+	return decodeURIComponent(mensaje);
+  }
+function agregarAlCarrito(productos) {
+    carrito.push(productos);
+    console.log(carrito);
 }
-  
+
+const button = document.getElementById("carrito");
+button.addEventListener("click", function() {
+  const mensaje = encodeURIComponent(generarMensaje(carrito));
+  window.open(`https://api.whatsapp.com/send?phone=+542616731229&text=${mensaje}`, "_blank");
+});
 
   
