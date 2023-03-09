@@ -120,11 +120,17 @@ function onButtonClick() {
     const precioProducto = parseFloat(productosCarro.textContent.split("$")[1]);
     precioTotal -= precioProducto;
     document.getElementById("precio-total").textContent = precioTotal.toFixed(2);
+    const indice = carrito.indexOf(productosCarro);
+    if (indice !== -1) {
+        carrito.splice(indice, 1);
+    }
     productosCarro.remove();
 }
+
 function mensajito() {
 	const mensaje = encodeURIComponent(generarMensaje(carrito));
 	window.open(`https://api.whatsapp.com/send?phone=+542616731229&text=${mensaje}`, "_blank");
+	carrito.length = 0; 
   }
 function comprarClick(){
 	if(precioTotal <= 0){
