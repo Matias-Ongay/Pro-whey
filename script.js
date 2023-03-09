@@ -2,7 +2,7 @@ let precioTotal = 0;
 const productos = [
 	{
         
-		nombre: "Whey protein choco",
+		nombre: "Whey protein",
 		precio: 10.99,
 		imagen: src="./imagenes/whey.jpg"
 	},
@@ -14,7 +14,7 @@ const productos = [
 	},
 	{
         
-		nombre: "Whey protein crema",
+		nombre: "Whey protein",
 		precio: 19.99,
 		imagen: "./imagenes/proteincrema.jpg"
 	},
@@ -90,7 +90,7 @@ function agregarAlCarrito(productos) {
 	eliminar.classList.add("bot-eliminar");
 	precioTotal += productos.precio;
     document.getElementById("precio-total").textContent = precioTotal.toFixed(2);
-	productosCarro.textContent=productCarro.nombre+"...............$"+productCarro.precio;
+	productosCarro.textContent=productCarro.nombre+".......$"+productCarro.precio;
 	productosCarro.appendChild(eliminar);
 	eliminar.appendChild(elimarIcono);
 	contenedorLista.appendChild(productosCarro);
