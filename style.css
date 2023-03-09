@@ -90,11 +90,7 @@ button{
     color: rgb(202, 210, 197);
     border-color: black;
 }
-.catalogo{
-    border-color:rgb(202, 210, 197);
-    background-color: rgb(47, 62, 70);
-    color: rgb(202, 210, 197);
-}
+
 .grilla{
     overflow-x: hidden;
     display: grid;
@@ -173,6 +169,46 @@ button{
 #carrito-container{
     background-color: rgb(202, 210, 197);
     display: none;
+    border-radius: 20px;
+    margin: 30px;
+    padding: 30px;
+}
+.mini{
+    color: rgb(53, 79, 82);
+}
+.listita{
+    text-decoration: none;
+    list-style-type: none;
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+}
+.bot-eliminar{
+    border-radius: 10px;
+    background-color:rgb(53, 79, 82);
+   justify-content: right;
+   padding: 0px;
+   width: 40px;
+    height: 40px;
+}
+.eliminarIcono{
+width: 25px;
+height: 25px;
+
+}
+#whatsapp{
+   margin-top: 20px;
+   width: 100px;
+   height: 70px;
+}
+.check{
+    display:flex;
+    justify-content: space-between;
+    
+}
+.precioF{
+    margin-top: 15%;
 }
 @media(min-width:500px){
 
@@ -206,4 +242,43 @@ button{
         "big principal"
         "cuerpo principal";
     }
+    .producto{
+        width: 350px;
+	    height: 450px;
+    }
+    .imagen{
+        width: 250px;
+	    height: 250px;
+    }
+    .nombre{
+        font-size: 25px;
+    }
+    .precio{
+        font-size: 25px;
+    }
+    .boton-agregar{
+        width: 250px;
+        height: 60px;
+    }
+    .t1{
+        font-size: 50px;
+    }
+    #carrito{
+        width: 100px;
+    height: 100px;
+    }
+    .listita{
+        font-size: 24px;
+    }
+    .mini{
+        font-size: 40px;
+    }
+    #whatsapp{
+        width: 150px;
+        height: 100px;
+    }
+
+
+
+
     }

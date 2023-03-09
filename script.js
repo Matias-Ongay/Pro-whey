@@ -1,3 +1,4 @@
+let precioTotal = 0;
 const productos = [
 	{
         
@@ -75,17 +76,29 @@ function generarMensaje(carrito) {
 	  mensaje += `Nombre: ${producto.nombre}\n`;
 	  mensaje += `Precio: $${producto.precio.toFixed(2)}\n\n`;
 	}
+	mensaje +=`Precio total: $${precioTotal.toFixed(2)}\n\n`;
 	return decodeURIComponent(mensaje);
   }
 function agregarAlCarrito(productos) {
 	const productCarro = productos;
 	const productosCarro=document.createElement("li");
-	productosCarro.textContent=productCarro.nombre;
+	productosCarro.classList.add("listita");
+	const eliminar=document.createElement("button");
+	const elimarIcono=document.createElement("img");
+	elimarIcono.src="./imagenes/eliminar.png"
+	elimarIcono.classList.add("eliminarIcono");
+	eliminar.classList.add("bot-eliminar");
+	precioTotal += productos.precio;
+    document.getElementById("precio-total").textContent = precioTotal.toFixed(2);
+	productosCarro.textContent=productCarro.nombre+"...............$"+productCarro.precio;
+	productosCarro.appendChild(eliminar);
+	eliminar.appendChild(elimarIcono);
 	contenedorLista.appendChild(productosCarro);
-	console.log("anda 2");
-    carrito.push(productos);
-    console.log(carrito);
 	
+    carrito.push(productos);
+	eliminar.addEventListener("click", function() {
+        borrar(productosCarro);
+	});
 }
 function toggleMenu() {
 	let menuContainer = document.getElementById("carrito-container");
@@ -99,16 +112,29 @@ function toggleMenu() {
 const contenedorLista=document.getElementById("container-lista");
 const button = document.getElementById("carrito");
 
-
 function onButtonClick() {
 	toggleMenu();
-	
  }
+
+ function borrar(productosCarro) {
+    const precioProducto = parseFloat(productosCarro.textContent.split("$")[1]);
+    precioTotal -= precioProducto;
+    document.getElementById("precio-total").textContent = precioTotal.toFixed(2);
+    productosCarro.remove();
+}
+function mensajito() {
+	const mensaje = encodeURIComponent(generarMensaje(carrito));
+	window.open(`https://api.whatsapp.com/send?phone=+542616731229&text=${mensaje}`, "_blank");
+  }
+function comprarClick(){
+	if(precioTotal <= 0){
+		alert("Aun no has agregado nada al carrito");
+	}else{
+		mensajito();
+		
+	}
+}
 button.addEventListener("click",onButtonClick);
+const whastsApp = document.getElementById("whatsapp");
 
-
-  /*button.addEventListener("click", function() {
-  const mensaje = encodeURIComponent(generarMensaje(carrito));
-  window.open(`https://api.whatsapp.com/send?phone=+542616731229&text=${mensaje}`, "_blank");
-});
-*/
+  whastsApp.addEventListener("click",comprarClick);
