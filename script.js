@@ -120,7 +120,8 @@ function onButtonClick() {
     const precioProducto = parseFloat(productosCarro.textContent.split("$")[1]);
     precioTotal -= precioProducto;
     document.getElementById("precio-total").textContent = precioTotal.toFixed(2);
-    const indice = carrito.indexOf(productosCarro);
+    const nombreProducto = productosCarro.textContent.split(".......$")[0];
+    const indice = carrito.findIndex((producto) => producto.nombre === nombreProducto);
     if (indice !== -1) {
         carrito.splice(indice, 1);
     }
